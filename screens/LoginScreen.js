@@ -34,7 +34,7 @@ class LoginScreen extends Component {
                     />
                     <TextInput 
                         style={styles.textInput} placeholder='Password'
-                        secureTextEntry={true} underlineColorAndroid='transparent'
+                        secureTextEntry={true}underlineColorAndroid='transparent'
                     />
                     <Button style={styles.button}
                         icon={{name: 'golf-course', size: 20}}
@@ -54,8 +54,6 @@ class LoginScreen extends Component {
     }
 }
 
-export default LoginScreen;
-
 const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
@@ -73,3 +71,5 @@ const styles = StyleSheet.create({
         marginBottom: 20
     }
 });
+
+export default LoginScreen;
