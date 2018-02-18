@@ -1,24 +1,74 @@
 import React, { Component } from 'react';
 import { View, Platform, Image, StyleSheet, Text } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 import { Button } from 'react-native-elements';
+import { STATUS_BAR_HEIGHT } from '../constants';
+import icon from '../assets/Ball-transparent.png';
 
 class Leaderboard extends Component {
+    static navigationOptions = () => ({
+        title: 'Leaderboard',
+        headerStyle: {
+            height: Platform.OS === 'android' ? 54 + STATUS_BAR_HEIGHT : 54,
+            backgroundColor: '#868D86'
+        },
+        headerTitleStyle: {
+            marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
+            color: 'white',
+            paddingRight: Platform.OS === 'android' ? 50 : 0,
+            alignSelf: 'center'
+        },
+        headerLeft: (
+            <Image 
+             source={icon}
+             style={styles.imageStyle} 
+            />
+        )
+    });
     render () {
         return (
-            <View>
-                <Text>This is the Leaderboard screen</Text>
+            <View style={styles.container}>
+                <View style={[styles.boxcontainer, styles.box1]}>
+                    <Text>Leaderboard</Text>
+                </View>
+                <View style={[styles.boxcontainer, styles.box2]}>
                 <Button 
-                    // raised
                     icon={{name: 'home', size: 20}}
-                    buttonStyle={{backgroundColor: 'rgba(63, 191,127, 0.5)', borderRadius: 30, width: 150}}
+                    buttonStyle={{backgroundColor: '#868D86', width: 200}}
                     textStyle={{textAlign: 'center'}}
                     title={'Home'}
                     onPress={() => this.props.navigation.navigate('MainScreen')} 
                 />
+                </View>
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    boxcontainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }, 
+    box1: {
+        backgroundColor: '#D4D7D7'
+    },
+    box2: {
+        backgroundColor: '#D4D7D7'
+    },   
+    imageStyle: {
+        marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
+        marginLeft: 10,
+        width: 40,
+        height: 40
+    },
+    buttonStyle: {
+        marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 20
+    }
+
+});
 
 export default Leaderboard;

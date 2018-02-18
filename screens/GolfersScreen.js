@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View, Platform, Image, StyleSheet } from 'react-native';
+import { View, Platform, Image, StyleSheet, Text } from 'react-native';
 import { STATUS_BAR_HEIGHT } from '../constants';
-// import Expo from 'expo';
 import { Button } from 'react-native-elements';
 import icon from '../assets/Ball-transparent.png';
 
@@ -14,7 +13,9 @@ class GolfersScreen extends Component {
         },
         headerTitleStyle: {
             marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
-            color: 'white'
+            color: 'white',
+            paddingRight: Platform.OS === 'android' ? 50 : 0,
+            alignSelf: 'center'
         },
         headerLeft: (
             <Image 
@@ -25,28 +26,50 @@ class GolfersScreen extends Component {
     });
     render() {
         return (
-            <View style={{ backgroundColor: '#ddd' }}>
+            <View style={styles.container}>
+                <View style={[styles.boxcontainer, styles.box1]}>
+                    <Text>GolfersScreen</Text>
+                </View>
+                <View style={[styles.boxcontainer, styles.box2]}>
                 <Button 
-                    // raised
                     icon={{name: 'home', size: 20}}
-                    buttonStyle={{backgroundColor: 'rgba(63, 191,127, 0.5)', borderRadius: 30, width: 150}}
+                    buttonStyle={{backgroundColor: '#868D86', width: 200}}
                     textStyle={{textAlign: 'center'}}
                     title={'Home'}
                     onPress={() => this.props.navigation.navigate('MainScreen')} 
                 />
-             </View>
+                </View>
+            </View>
         );
     }
 }
 
-const styles = {
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    boxcontainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }, 
+    box1: {
+        backgroundColor: '#D4D7D7'
+    },
+    box2: {
+        backgroundColor: '#D4D7D7'
+    },   
     imageStyle: {
         marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
         marginLeft: 10,
         width: 40,
         height: 40
+    },
+    buttonStyle: {
+        marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 20
     }
 
-}
+});
 
 export default GolfersScreen;

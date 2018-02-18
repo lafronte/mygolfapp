@@ -23,7 +23,9 @@ class MainScreen extends Component {
         headerTitleStyle: {
             marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
             color: 'white',
-            textAlign: 'center'
+            paddingRight: Platform.OS === 'android' ? 50 : 0,
+            alignSelf:'center'
+
         },
         headerLeft: (
             <Image 
@@ -52,11 +54,10 @@ async _loadAssetsAsync() {
         return (
             <View style={styles.container}>
                 <View style={[styles.boxcontainer, styles.box1]}>
-                    <Text>MyGolfApp</Text>
+                    <Text>MainScreen</Text>
                 </View>
                 <View style={[styles.boxcontainer, styles.box2]}>
                     <Button 
-                        // raised
                         icon={{name: 'golf-course', size: 20}}
                         buttonStyle={{backgroundColor: '#868D86', width: 200, margin: 10}}
                         textStyle={{textAlign: 'center'}}
@@ -64,7 +65,6 @@ async _loadAssetsAsync() {
                         onPress={() => this.props.navigation.navigate('GolfersScreen')} 
                     />
                      <Button 
-                        // raised
                         icon={{name: 'golf-course', size: 20}}
                         buttonStyle={{backgroundColor: '#868D86', width: 200}}
                         textStyle={{textAlign: 'center'}}
