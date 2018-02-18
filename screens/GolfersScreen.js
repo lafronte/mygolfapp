@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { View, Platform, Image, StyleSheet, Text } from 'react-native';
-import { STATUS_BAR_HEIGHT } from '../constants';
 import { Button } from 'react-native-elements';
+import { STATUS_BAR_HEIGHT } from '../constants';
 import logo from '../assets/Ball-transparent.png';
+
+
+const cacheImages = images => images.map(image => {
+    if (typeof image === 'string') return Image.prefetch(image);
+    return Expo.Asset.fromModule(image).downloadAsync();
+});
 
 class GolfersScreen extends Component {
     static navigationOptions = () => ({

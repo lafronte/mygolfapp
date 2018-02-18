@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Platform, Image, StyleSheet, Text } from 'react-native';
-// import Expo from 'expo';
 import { Button } from 'react-native-elements';
 import { STATUS_BAR_HEIGHT } from '../constants';
 import logo from '../assets/Ball-transparent.png';

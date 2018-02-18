@@ -4,6 +4,11 @@ import { Button } from 'react-native-elements';
 import { STATUS_BAR_HEIGHT } from '../constants';
 import logo from '../assets/Ball-transparent.png';
 
+const cacheImages = images => images.map(image => {
+    if (typeof image === 'string') return Image.prefetch(image);
+    return Expo.Asset.fromModule(image).downloadAsync();
+});
+
 class Leaderboard extends Component {
     static navigationOptions = () => ({
         title: 'Leaderboard',
