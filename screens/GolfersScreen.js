@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Platform, Image, StyleSheet, Text } from 'react-native';
 import { STATUS_BAR_HEIGHT } from '../constants';
 import { Button } from 'react-native-elements';
-import icon from '../assets/Ball-transparent.png';
+import logo from '../assets/Ball-transparent.png';
 
 class GolfersScreen extends Component {
     static navigationOptions = () => ({
@@ -19,7 +19,7 @@ class GolfersScreen extends Component {
         },
         headerLeft: (
             <Image 
-             source={icon}
+             source={logo}
              style={styles.imageStyle} 
             />
         )

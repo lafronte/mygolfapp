@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Platform, Image, StyleSheet, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { STATUS_BAR_HEIGHT } from '../constants';
-import icon from '../assets/Ball-transparent.png';
+import logo from '../assets/Ball-transparent.png';
 
 class Leaderboard extends Component {
     static navigationOptions = () => ({
@@ -19,7 +19,7 @@ class Leaderboard extends Component {
         },
         headerLeft: (
             <Image 
-             source={icon}
+             source={logo}
              style={styles.imageStyle} 
             />
         )

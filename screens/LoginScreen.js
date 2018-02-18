@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
-import { AsyncStorage, KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { AsyncStorage, Image, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
+import { STATUS_BAR_HEIGHT } from '../constants';
+import logo from '../assets/Ball-transparent.png';
 
 class LoginScreen extends Component {
-    
+    static navigationOptions = () => ({
+        title: 'My Golf App',
+        headerStyle: {
+            height: Platform.OS === 'android' ? 54 + STATUS_BAR_HEIGHT : 54,
+            backgroundColor: '#868D86'
+        },
+        headerTitleStyle: {
+            marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
+            color: 'white',
+            paddingRight: Platform.OS === 'android' ? 50 : 0,
+            alignSelf:'center'
+
+        },
+        headerLeft: (
+            <Image 
+             source={logo}
+             style={styles.imageStyle} 
+            />
+        )
+    });
     constructor(props) {
         super(props);
         this.state = {
@@ -69,6 +90,12 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         padding: 16,
         marginBottom: 20
+    },
+    imageStyle: {
+        marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0,
+        marginLeft: 10,
+        width: 40,
+        height: 40
     }
 });
 
