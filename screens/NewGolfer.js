@@ -38,7 +38,7 @@ class NewGolfer extends Component {
     render () {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
-                <View style={styles.container}>
+                <View style={[styles.boxcontainer, styles.box1]}>
                     <TextInput 
                         style={styles.textInput} placeholder='First Name'
                         underlineColorAndroid='transparent'
@@ -55,9 +55,11 @@ class NewGolfer extends Component {
                         style={styles.textInput} placeholder='Handicap'
                         underlineColorAndroid='transparent'
                     />
+                </View>
+                <View style={[styles.boxcontainer, styles.box2]}>
                     <Button
                         icon={{name: 'golf-course', size: 20}}
-                        buttonStyle={{backgroundColor: '#868D86', width: 200, marginBottom: 10}}
+                        buttonStyle={{backgroundColor: '#868D86', width: 200, margin: 10}}
                         textStyle={{textAlign: 'center'}}
                         title={'Save Golfer'}
                         onPress={this.save}
@@ -100,10 +102,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }, 
     box1: {
+        flex: 3,
         backgroundColor: '#D4D7D7'
     },
     box2: {
-        backgroundColor: '#7B7979'
+        flex: 1,
+        backgroundColor: '#D4D7D7'
     },
     // buttonStyle: { marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 20 },
     imageStyle: {
