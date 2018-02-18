@@ -57,9 +57,9 @@ class LoginScreen extends Component {
                         style={styles.textInput} placeholder='Password'
                         secureTextEntry={true}underlineColorAndroid='transparent'
                     />
-                    <Button style={styles.button}
+                    <Button
                         icon={{name: 'golf-course', size: 20}}
-                        buttonStyle={{backgroundColor: '#868D86', width: 200}}
+                        buttonStyle={{backgroundColor: '#868D86', width: 200, marginTop: 20}}
                         textStyle={{textAlign: 'center'}}
                         title={'Login'}
                         onPress={this.login}
@@ -68,7 +68,6 @@ class LoginScreen extends Component {
             </KeyboardAvoidingView> 
         );
     }
-
     login = () => {
         alert('This is when the login will take place.');
         this.props.navigation.navigate('MainScreen')

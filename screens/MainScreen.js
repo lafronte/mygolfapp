@@ -58,17 +58,24 @@ async _loadAssetsAsync() {
                 <View style={[styles.boxcontainer, styles.box2]}>
                     <Button 
                         icon={{name: 'golf-course', size: 20}}
-                        buttonStyle={{backgroundColor: '#868D86', width: 200, margin: 10}}
+                        buttonStyle={{backgroundColor: '#868D86', width: 200, marginBottom: 10}}
                         textStyle={{textAlign: 'center'}}
                         title={'Golfers'}
                         onPress={() => this.props.navigation.navigate('GolfersScreen')} 
                     />
                      <Button 
                         icon={{name: 'golf-course', size: 20}}
-                        buttonStyle={{backgroundColor: '#868D86', width: 200}}
+                        buttonStyle={{backgroundColor: '#868D86', width: 200, marginBottom: 10}}
                         textStyle={{textAlign: 'center'}}
                         title={'Leaderboard'}
                         onPress={() => this.props.navigation.navigate('Leaderboard')} 
+                    />
+                    <Button 
+                        icon={{name: 'golf-course', size: 20}}
+                        buttonStyle={{backgroundColor: '#868D86', width: 200}}
+                        textStyle={{textAlign: 'center'}}
+                        title={'NewGolfer'}
+                        onPress={() => this.props.navigation.navigate('NewGolfer')} 
                     />
                 </View>
             </View>
@@ -97,9 +104,7 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40
     },
-    buttonStyle: {
-        marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 20
-    }
+//    buttonStyle: { marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 20 }
 
 });
 

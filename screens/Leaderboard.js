@@ -69,10 +69,8 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         width: 40,
         height: 40
-    },
-    buttonStyle: {
-        marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 20
     }
+    // buttonStyle: { marginTop: Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 20 }
 
 });
 
