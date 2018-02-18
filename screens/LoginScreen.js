@@ -30,19 +30,17 @@ class LoginScreen extends Component {
                 <View style={styles.container}>
                     <TextInput 
                         style={styles.textInput} placeholder='Username'
-                        //underlineColorAndroid='transparent'
+                        underlineColorAndroid='transparent'
                     />
                     <TextInput 
                         style={styles.textInput} placeholder='Password'
-                        //underlineColorAndroid='transparent'
+                        secureTextEntry={true} underlineColorAndroid='transparent'
                     />
                     <Button style={styles.button}
-                        // raised
                         icon={{name: 'golf-course', size: 20}}
                         buttonStyle={{backgroundColor: '#868D86', width: 200}}
                         textStyle={{textAlign: 'center'}}
                         title={'Login'}
-                        //onPress={() => this.props.navigation.navigate('GolfersScreen')} 
                         onPress={this.login}
                     />
                 </View>
