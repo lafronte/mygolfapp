@@ -51,7 +51,7 @@ class LoginScreen extends Component {
     }
 
     login = () => {
-        alert('Login');
+        alert('This is when the login will take place.');
         this.props.navigation.navigate('MainScreen')
     }
 }
