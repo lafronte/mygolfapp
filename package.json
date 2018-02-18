@@ -1,0 +1,24 @@
+{
+  "name": "mygolfapp",
+  "version": "0.0.0",
+  "description": "Hello Expo!",
+  "author": "Chris LaFronte",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "dependencies": {
+    "expo": "^25.0.0",
+    "firebase": "^4.6.0",
+    "react": "^16.2.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native-elements": "^0.19.0",
+    "react-native-scripts": "^1.11.1",
+    "react-navigation": "1.0.0-beta.27",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "util": "*"
+  },
+  "devDependencies": {
+    "eslint-config-rallycoding": "^3.2.0",
+    "redux-devtools": "^3.4.0"
+  }
+}

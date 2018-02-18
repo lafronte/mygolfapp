@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "mygolfapp",
+    "description": "mygolfapp",
+    "slug": "mygolfapp",
+    "privacy": "public",
+    "sdkVersion": "25.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./assets/Ball-transparent.png",
+    "splash": {
+      "image": "./assets/Ball-transparent.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4"]
+    },
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
