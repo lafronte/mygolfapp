@@ -1,12 +1,14 @@
 {
   "name": "mygolfapp",
-  "version": "0.0.0",
-  "description": "Hello Expo!",
+  "version": "0.0.1",
+  "description": "mygolfapp",
   "author": "Chris LaFronte",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
+    "@expo/vector-icons": "^6.3.1",
     "auth0-js": "^9.2.3",
+    "babel-preset-expo": "^4.0.0",
     "expo": "^25.0.0",
     "firebase": "^4.10.0",
     "react": "^16.2.0",
@@ -21,5 +23,8 @@
   "devDependencies": {
     "eslint-config-rallycoding": "^3.2.0",
     "redux-devtools": "^3.4.0"
+  },
+  "scripts": {
+    "start": "node your-script.js"
   }
 }

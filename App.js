@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import * as firebase from 'firebase';
 
 import MainScreen from './screens/MainScreen'
 import GolfersScreen from './screens/GolfersScreen'

@@ -2,8 +2,22 @@ import React, { Component } from 'react';
 import { AsyncStorage, Image, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Button } from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
+import * as firebase from 'firebase';
 import { STATUS_BAR_HEIGHT } from '../constants';
 import logo from '../assets/Ball-transparent.png';
+
+
+// Initialize firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyCyBjifFcdfl51tksIw96-cped7sYQTbHw",
+    authDomain: "mygolfapp-5710.firebaseapp.com",
+    databaseURL: "https://mygolfapp-5710.firebaseio.com",
+    projectId: "mygolfapp-5710",
+    storageBucket: "mygolfapp-5710.appspot.com",
+  }; 
+
+firebase.initializeApp(firebaseConfig);
+
 
 class LoginScreen extends Component {
     static navigationOptions = () => ({
@@ -17,7 +31,6 @@ class LoginScreen extends Component {
             color: 'white',
             paddingRight: Platform.OS === 'android' ? 50 : 0,
             alignSelf:'center'
-
         },
         headerLeft: (
             <Image 
@@ -26,23 +39,42 @@ class LoginScreen extends Component {
             />
         )
     });
+
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            email: '',
             password: '',
+            error: '',
+            loading:false
         }
-    }
-    
-    componentDidMount(){
-        this._loadInitialState().done();
     }
 
-    _loadInitialState = async () => {
-        var value = await AsyncStorage.getItem('user');
-        if (value !== null) {
-            this.props.navigation.navigate('MainScreen');
+    signUp = (email,password) => {
+        try{
+            if (this.state.password.length < 6){
+                alert("Please enter a password with at least 6 characters")
+                return;
+            }
+            firebase.auth().createUserWithEmailAndPassword(email,password)
+            console.log('Signed up')
         }
+        catch(error){
+            console.log(error.toString())
+        }
+    }
+
+    login = (email,password) => {
+        try {
+            //firebase.auth().signInAnonymously(console.log('login'))
+            firebase.auth().signInWithEmailAndPassword(email,password).then(function (user) {
+                console.log(user)
+            })
+        }
+        catch(error) {
+            console.log(error.toString())
+        }
+        this.props.navigation.navigate('MainScreen')
     }
 
     render () {
@@ -50,11 +82,17 @@ class LoginScreen extends Component {
             <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
                 <View style={styles.container}>
                     <TextInput 
-                        style={styles.textInput} placeholder='Username'
-                        underlineColorAndroid='transparent'
+                        style={styles.textInput} placeholder='Email'
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        onChangeText={ ( email ) => this.setState({email}) }
+                        underlineColorAndroid='transparent'    
                     />
                     <TextInput 
                         style={styles.textInput} placeholder='Password'
+                        autoCorrect={false}
+                        autoCapitalize="none"
+                        onChangeText={ ( password ) => this.setState({password}) }
                         secureTextEntry={true}underlineColorAndroid='transparent'
                     />
                     <Button
@@ -62,15 +100,19 @@ class LoginScreen extends Component {
                         buttonStyle={{backgroundColor: '#868D86', width: 200, marginTop: 20}}
                         textStyle={{textAlign: 'center'}}
                         title={'Login'}
-                        onPress={this.login}
+                        onPress={() => this.login(this.state.email, this.state.password)}
+                        //onPress={this.login}
+                    />
+                    <Button
+                        icon={{name: 'golf-course', size: 20}}
+                        buttonStyle={{backgroundColor: '#868D86', width: 200, marginTop: 20}}
+                        textStyle={{textAlign: 'center'}}
+                        title={'Sign up'}
+                        onPress={() => this.signUp(this.state.email, this.state.password)}
                     />
                 </View>
             </KeyboardAvoidingView> 
         );
-    }
-    login = () => {
-        alert('This is when the login will take place.');
-        this.props.navigation.navigate('MainScreen')
     }
 }
 
