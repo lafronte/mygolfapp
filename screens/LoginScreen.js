@@ -66,7 +66,6 @@ class LoginScreen extends Component {
 
     login = (email,password) => {
         try {
-            //firebase.auth().signInAnonymously(console.log('login'))
             firebase.auth().signInWithEmailAndPassword(email,password).then(function (user) {
                 console.log(user)
             })
@@ -74,7 +73,7 @@ class LoginScreen extends Component {
         catch(error) {
             console.log(error.toString())
         }
-        this.props.navigation.navigate('MainScreen')
+        //this.props.navigation.navigate('MainScreen')
     }
 
     render () {
