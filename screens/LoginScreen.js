@@ -61,18 +61,21 @@ class LoginScreen extends Component {
         }
         catch(error){
             console.log(error.toString())
+            alert("Unable to sign up!")
+            return;
         }
     }
 
     login = (email,password) => {
-        try {
-            firebase.auth().signInWithEmailAndPassword(email,password).then(function (user) {
-                console.log(user)
-            })
-        }
-        catch(error) {
-            console.log(error.toString())
-        }
+            firebase.auth().signInWithEmailAndPassword(email,password)
+                .then(function (user) {
+                    console.log('You logged in')
+                    alert("You are now logged in.")
+                    //this.props.navigation.navigate('MainScreen');
+                })
+                .catch(function (error) {
+                    console.log(error.toString())
+                });
         //this.props.navigation.navigate('MainScreen')
     }
 
@@ -100,7 +103,6 @@ class LoginScreen extends Component {
                         textStyle={{textAlign: 'center'}}
                         title={'Login'}
                         onPress={() => this.login(this.state.email, this.state.password)}
-                        //onPress={this.login}
                     />
                     <Button
                         icon={{name: 'golf-course', size: 20}}
