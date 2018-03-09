@@ -76,6 +76,7 @@ class LoginScreen extends Component {
                 })
                 .catch(function (error) {
                     console.log(error.toString())
+                    alert(error)
                 });
     }
 
