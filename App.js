@@ -7,6 +7,7 @@ import GolfersScreen from './screens/GolfersScreen'
 import Leaderboard from './screens/Leaderboard'
 import LoginScreen from './screens/LoginScreen'
 import NewGolfer from './screens/NewGolfer'
+import Events from './screens/Events'
 
 export default class App extends React.Component {
   render() {
@@ -20,7 +21,8 @@ const MainNavigator = StackNavigator({
   MainScreen: { screen: MainScreen },
   GolfersScreen: { screen: GolfersScreen },
   Leaderboard: { screen: Leaderboard },
-  NewGolfer: { screen: NewGolfer }
+  NewGolfer: { screen: NewGolfer },
+  Events: { screen: Events}
 });
 
 const styles = StyleSheet.create({

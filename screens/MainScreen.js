@@ -77,6 +77,13 @@ async _loadAssetsAsync() {
                         title={'New Golfer'}
                         onPress={() => this.props.navigation.navigate('NewGolfer')} 
                     />
+                    <Button 
+                        icon={{name: 'golf-course', size: 20}}
+                        buttonStyle={{backgroundColor: '#868D86', width: 200}}
+                        textStyle={{textAlign: 'center'}}
+                        title={'Events'}
+                        onPress={() => this.props.navigation.navigate('Events')} 
+                    />
                 </View>
             </View>
         );
