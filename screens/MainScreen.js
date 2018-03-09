@@ -72,7 +72,7 @@ async _loadAssetsAsync() {
                     />
                     <Button 
                         icon={{name: 'golf-course', size: 20}}
-                        buttonStyle={{backgroundColor: '#868D86', width: 200}}
+                        buttonStyle={{backgroundColor: '#868D86', width: 200, marginBottom: 10}}
                         textStyle={{textAlign: 'center'}}
                         title={'New Golfer'}
                         onPress={() => this.props.navigation.navigate('NewGolfer')} 

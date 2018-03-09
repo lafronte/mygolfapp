@@ -34,7 +34,7 @@ class Events extends Component {
         return (
             <View style={styles.container}>
                 <View style={[styles.boxcontainer, styles.box1]}>
-                    <Text>GolfersScreen</Text>
+                    <Text>EventsScreen</Text>
                 </View>
                 <View style={[styles.boxcontainer, styles.box2]}>
                 <Button 
