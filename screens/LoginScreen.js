@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { AsyncStorage, Image, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Button } from 'react-native-elements';
-import { StackNavigator } from 'react-navigation';
+//import { StackNavigator } from 'react-navigation';
 import * as firebase from 'firebase';
 import { STATUS_BAR_HEIGHT } from '../constants';
 import logo from '../assets/Ball-transparent.png';
+import MainScreen from './MainScreen';
 
 
 // Initialize firebase
@@ -46,7 +47,7 @@ class LoginScreen extends Component {
             email: '',
             password: '',
             error: '',
-            loading:false
+            loading: false
         }
     }
 
@@ -66,17 +67,16 @@ class LoginScreen extends Component {
         }
     }
 
-    login = (email,password) => {
-            firebase.auth().signInWithEmailAndPassword(email,password)
-                .then(function (user) {
-                    console.log('You logged in')
-                    alert("You are now logged in.")
-                    //this.props.navigation.navigate('MainScreen');
+    login() {
+            var that = this;
+            firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password)
+                .then( (user) => {
+                    this.props.navigation.navigate('MainScreen')
+                    console.log('logged in')
                 })
                 .catch(function (error) {
                     console.log(error.toString())
                 });
-        //this.props.navigation.navigate('MainScreen')
     }
 
     render () {
@@ -102,7 +102,8 @@ class LoginScreen extends Component {
                         buttonStyle={{backgroundColor: '#868D86', width: 200, marginTop: 20}}
                         textStyle={{textAlign: 'center'}}
                         title={'Login'}
-                        onPress={() => this.login(this.state.email, this.state.password)}
+                        //onPress={() => this.login(this.state.email, this.state.password)}
+                        onPress={this.login.bind(this)}
                     />
                     <Button
                         icon={{name: 'golf-course', size: 20}}
@@ -112,6 +113,7 @@ class LoginScreen extends Component {
                         onPress={() => this.signUp(this.state.email, this.state.password)}
                     />
                 </View>
+
             </KeyboardAvoidingView> 
         );
     }
