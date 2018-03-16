@@ -35,6 +35,9 @@ class GolfersScreen extends Component {
             <View style={styles.container}>
                 <View style={[styles.boxcontainer, styles.box1]}>
                     <Text>GolfersScreen</Text>
+                    <List
+                    
+                    />
                 </View>
                 <View style={[styles.boxcontainer, styles.box2]}>
                 <Button 

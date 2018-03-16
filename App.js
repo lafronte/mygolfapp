@@ -9,7 +9,7 @@ import LoginScreen from './screens/LoginScreen'
 import NewGolfer from './screens/NewGolfer'
 import Events from './screens/Events'
 
-export default class App extends React.Component {
+export default class App extends React.Component {  
   render() {
     return (
       <MainNavigator />

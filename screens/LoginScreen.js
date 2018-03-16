@@ -7,7 +7,6 @@ import { STATUS_BAR_HEIGHT } from '../constants';
 import logo from '../assets/Ball-transparent.png';
 import MainScreen from './MainScreen';
 
-
 // Initialize firebase
 const firebaseConfig = {
     apiKey: "AIzaSyCyBjifFcdfl51tksIw96-cped7sYQTbHw",
@@ -18,7 +17,6 @@ const firebaseConfig = {
   }; 
 
 firebase.initializeApp(firebaseConfig);
-
 
 class LoginScreen extends Component {
     static navigationOptions = () => ({

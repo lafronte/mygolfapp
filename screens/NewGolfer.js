@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { View, Platform, Image,  KeyboardAvoidingView, StyleSheet, Text, TextInput } from 'react-native';
 import { Button } from 'react-native-elements';
+import * as firebase from 'firebase';
 import { STATUS_BAR_HEIGHT } from '../constants';
 import logo from '../assets/Ball-transparent.png';
+
+var data = []
 
 class NewGolfer extends Component {
     static navigationOptions = () => ({
@@ -42,18 +45,22 @@ class NewGolfer extends Component {
                     <TextInput 
                         style={styles.textInput} placeholder='First Name'
                         underlineColorAndroid='transparent'
+                        onChangeText = {(firstName) => this.setState({firstName})}
                     />
                     <TextInput 
                         style={styles.textInput} placeholder='Last Name'
                         underlineColorAndroid='transparent'
+                        onChangeText = {(lastName) => this.setState({lastName})}
                     />
                     <TextInput 
                         style={styles.textInput} placeholder='Email'
                         underlineColorAndroid='transparent'
+                        onChangeText = {(Email) => this.setState({Email})}
                     />
                     <TextInput 
                         style={styles.textInput} placeholder='Handicap'
                         underlineColorAndroid='transparent'
+                        onChangeText = {(Handicap) => this.setState({Handicap})}
                     />
                 </View>
                 <View style={[styles.boxcontainer, styles.box2]}>
@@ -62,7 +69,7 @@ class NewGolfer extends Component {
                         buttonStyle={{backgroundColor: '#868D86', width: 200, margin: 10}}
                         textStyle={{textAlign: 'center'}}
                         title={'Save Golfer'}
-                        onPress={this.save}
+                        onPress={() => this.save(this.state.firstName)}
                     />
                     <Button 
                         icon={{name: 'home', size: 20}}
@@ -75,8 +82,10 @@ class NewGolfer extends Component {
             </KeyboardAvoidingView> 
         );
     }
-    save = () => {
-        alert('This will put to database.');
+    save = (firstName) => {
+        alert('This will push to database.');
+        var key = firebase.database().ref('/golfers').push().key
+        firebase.database().ref('/golfers').child(key).set({ name: firstName })
     }
 }
 
