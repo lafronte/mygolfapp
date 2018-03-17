@@ -25,6 +25,7 @@
     "redux-devtools": "^3.4.0"
   },
   "scripts": {
-    "start": "node your-script.js"
+    "start": "node your-script.js",
+    "devtools": "react-devtools"
   }
 }

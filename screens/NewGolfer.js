@@ -69,7 +69,7 @@ class NewGolfer extends Component {
                         buttonStyle={{backgroundColor: '#868D86', width: 200, margin: 10}}
                         textStyle={{textAlign: 'center'}}
                         title={'Save Golfer'}
-                        onPress={() => this.save(this.state.firstName)}
+                        onPress={() => this.save(this.state.firstName, this.state.lastName, this.state.Email, this.state.Handicap)}
                     />
                     <Button 
                         icon={{name: 'home', size: 20}}
@@ -82,10 +82,10 @@ class NewGolfer extends Component {
             </KeyboardAvoidingView> 
         );
     }
-    save = (firstName) => {
+    save = (firstName, lastName, Email, Handicap) => {
         alert('This will push to database.');
         var key = firebase.database().ref('/golfers').push().key
-        firebase.database().ref('/golfers').child(key).set({ name: firstName })
+        firebase.database().ref('/golfers').child(key).set({ firstname: firstName, lastname: lastName, email: Email, handicap: Handicap })
     }
 }
 
